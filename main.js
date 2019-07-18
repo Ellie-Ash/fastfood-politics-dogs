@@ -70,8 +70,9 @@ const elizabethSanger = {
         wednesday: "Cut a ribbon",
         saturday: "Give someone a giant check"
     },
-    volunteers: {
-        Tom: {
+    volunteers: [
+        {
+            name: "Tom",
             address: "123 redwood way",
             email: "tom@tom.com",
             phone: "1234567",
@@ -86,7 +87,8 @@ const elizabethSanger = {
             },
             skills: ["phones", "making stickers"]
         },
-        Sally: {
+        {   
+            name: "Sally",
             address: "456 oak street",
             email: "sally@sally.com",
             phone: "2468102",
@@ -101,7 +103,8 @@ const elizabethSanger = {
             },
             skills: ["phones", "making signs"]
         },
-        Jack: {
+        {
+            name: "Jack",
             address: "369 maple lane",
             email: "jack@jack.com",
             phone: "6739271",
@@ -116,7 +119,7 @@ const elizabethSanger = {
             },
             skills: ["phones", "making plans"]
         }
-    },
+    ],
     biography: {
         hometown: "Nashville",
         birthday: "03-04-1977",
@@ -139,13 +142,18 @@ const dog = addImageToFamily("herDog", "cuteSangerDog.png")
 
 console.log(dog)
 
-const addSkills = (newSkill) => {
-    elizabethSanger.volunteers.Sally.skills.push(newSkill)
-    return elizabethSanger.volunteers.Sally.skills
+const addSkills = (index, newSkill) => {
+    const theVolunteer = elizabethSanger.volunteers[index].name
+  
+    const skills = elizabethSanger.volunteers[index].skills
+
+    skills.push(newSkill)
+
+    return `${index} ${theVolunteer} can do ${newSkill}`
 }
 
-const skills = addSkills("making Big Moves")
-console.log(skills)
+const go = addSkills(2, "other stuff")
+console.log(go)
 
 
 
